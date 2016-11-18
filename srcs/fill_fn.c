@@ -6,7 +6,7 @@
 /*   By: lchim <lchim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 21:56:16 by lchim             #+#    #+#             */
-/*   Updated: 2016/11/16 22:29:44 by lchim            ###   ########.fr       */
+/*   Updated: 2016/11/18 19:48:39 by aridolfi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,13 @@ int			ft_strlen(char *str)
 void		ft_putstr_fd(char *str, int fd)
 {
 	write(fd, str, ft_strlen(str));
+}
+
+char		*ft_strnew(size_t size)
+{
+	char *new;
+
+	if ((new = (char*)malloc(sizeof(char) * (size + 1))) == NULL)
+		return (NULL);
+	return (new);
 }

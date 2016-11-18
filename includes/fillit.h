@@ -6,7 +6,7 @@
 /*   By: lchim <lchim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 21:45:59 by lchim             #+#    #+#             */
-/*   Updated: 2016/11/17 09:14:57 by lchim            ###   ########.fr       */
+/*   Updated: 2016/11/18 19:47:13 by aridolfi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,11 @@ void		fill_read_tetris(int fd);
 
 int			ft_strlen(char *str);
 void		ft_putstr_fd(char *str, int fd);
+char		*ft_strnew(size_t size);
 
 void		fill_error(int index);
 void		fill_tetris_error(char *str);
 void		fill_true_tetris(char *str, int part);
+void		print_fill(int *grid, int n);
 
 #endif
