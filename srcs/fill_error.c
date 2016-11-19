@@ -6,12 +6,11 @@
 /*   By: lchim <lchim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 21:49:58 by lchim             #+#    #+#             */
-/*   Updated: 2016/11/19 17:09:31 by lchim            ###   ########.fr       */
+/*   Updated: 2016/11/19 17:52:44 by lchim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
 
 void		fill_error(int index)
 {

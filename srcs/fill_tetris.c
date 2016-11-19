@@ -6,22 +6,48 @@
 /*   By: lchim <lchim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 21:45:18 by lchim             #+#    #+#             */
-/*   Updated: 2016/11/19 10:48:59 by lchim            ###   ########.fr       */
+/*   Updated: 2016/11/19 18:13:45 by lchim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <stdio.h>
 
+
+
+void		fill_get_tetris(int *tetriminos, char *buff)
+{
+	while (*buff)
+	{
+		if (*buff == '.')
+			*tetriminos = 0;
+		if (*buff == '#')
+			*tetriminos = 1;
+		if (*buff == '\n')
+			*tetriminos = -1;
+		buff++;
+		tetriminos++;
+	}
+	*tetriminos = -2;
+}
+
 void		fill_read_tetris(int fd)
 {
 	int		ret;
 	char	buff[BUFF_SIZE + 1];
+	int		tetriminos[BUFF_SIZE + 1];
+	int		i = 0;
 
 	if ((ret = read(fd, buff, BUFF_SIZE)) == 0)
 		return ;
 	// return char * = NULL
 	buff[ret] = '\0';
 	fill_tetris_error(buff);
-	ft_putstr_fd(buff, 1);
+	fill_get_tetris(tetriminos, buff);
+	//test affichage
+	while (i < 22)
+	{
+		printf("%d\n", tetriminos[i]);
+		i++;
+	}
 }
