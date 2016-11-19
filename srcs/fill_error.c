@@ -6,7 +6,7 @@
 /*   By: lchim <lchim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 21:49:58 by lchim             #+#    #+#             */
-/*   Updated: 2016/11/17 09:14:42 by lchim            ###   ########.fr       */
+/*   Updated: 2016/11/19 17:09:31 by lchim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void		fill_tetris_error(char *str)
 	tmp = str;
 	while (*str)
 	{
-		if (i == 21 && (*str != '\n' || *str != '\0'))
+		if (i == 21 && (*str != '\n' && *str != '\0'))
 			fill_error(3);
 		if (i % 5 != 0 && i != 21 && (*str != '.' && *str != '#'))
 			fill_error(3);
