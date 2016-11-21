@@ -6,7 +6,7 @@
 /*   By: lchim <lchim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 21:45:18 by lchim             #+#    #+#             */
-/*   Updated: 2016/11/19 18:13:45 by lchim            ###   ########.fr       */
+/*   Updated: 2016/11/21 11:33:25 by lchim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,7 @@ void		fill_read_tetris(int fd)
 	int		tetriminos[BUFF_SIZE + 1];
 	int		i = 0;
 
-	if ((ret = read(fd, buff, BUFF_SIZE)) == 0)
-		return ;
-	// return char * = NULL
+	ret = read(fd, buff, BUFF_SIZE);
 	buff[ret] = '\0';
 	fill_tetris_error(buff);
 	fill_get_tetris(tetriminos, buff);

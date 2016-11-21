@@ -6,7 +6,7 @@
 /*   By: lchim <lchim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 21:49:58 by lchim             #+#    #+#             */
-/*   Updated: 2016/11/19 17:52:44 by lchim            ###   ########.fr       */
+/*   Updated: 2016/11/21 11:32:38 by lchim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ void		fill_tetris_error(char *str)
 		i++;
 		str++;
 	}
+	if (i != 22)
+		fill_error(3);
 	if (count != 4)
 		fill_error(3);
 	fill_true_tetris(tmp, count);
