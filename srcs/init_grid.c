@@ -6,13 +6,13 @@
 /*   By: aridolfi <aridolfi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:47:52 by aridolfi          #+#    #+#             */
-/*   Updated: 2016/11/21 13:54:05 by aridolfi         ###   ########.fr       */
+/*   Updated: 2016/11/21 14:52:28 by aridolfi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	init_grid(int **grid, int size)
+static void	init_grid(int **grid, int size)
 {
 	int y;
 	int x;
@@ -31,7 +31,7 @@ void	init_grid(int **grid, int size)
 	}
 }
 
-int		**set_grid(int size)
+int			**set_grid(int size)
 {
 	int **grid;
 	int n;
@@ -43,7 +43,7 @@ int		**set_grid(int size)
 	{
 		if (!(grid[n] = (int*)malloc(sizeof(int) * (size + 1))))
 			fill_tetris_error(0);
-		y++;
+		n++;
 	}
 	init_grid(grid, size);
 	return (grid);

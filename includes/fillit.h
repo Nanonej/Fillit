@@ -6,14 +6,14 @@
 /*   By: lchim <lchim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 21:45:59 by lchim             #+#    #+#             */
-/*   Updated: 2016/11/21 11:52:24 by aridolfi         ###   ########.fr       */
+/*   Updated: 2016/11/21 14:54:50 by aridolfi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
 
-# define BUFF_SIZE	21
+# define BUFF_SIZE	545
 
 # include <sys/types.h>
 # include <sys/uio.h>
@@ -32,6 +32,8 @@ char		*ft_strnew(size_t size);
 void		fill_error(int index);
 void		fill_tetris_error(char *str);
 void		fill_true_tetris(char *str, int part);
-void		print_fill(int *grid, int n);
+void		print_grid(int **grid, int size);
+
+int			**set_grid(int size);
 
 #endif

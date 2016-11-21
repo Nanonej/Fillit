@@ -1,46 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_fill.c                                       :+:      :+:    :+:   */
+/*   print_grid.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aridolfi <aridolfi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/18 18:37:33 by aridolfi          #+#    #+#             */
-/*   Updated: 2016/11/21 11:51:24 by aridolfi         ###   ########.fr       */
+/*   Updated: 2016/11/21 15:17:33 by aridolfi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	print_fill(int *grid, int n)
+void	print_grid(int **grid, int size)
 {
 	char	*tmp;
 	int		i;
+	int		y;
+	int		x;
 
 	i = 0;
-	if (!(tmp = ft_strnew(n - 1)))
+	y = 0;
+	if (!(tmp = ft_strnew((size + 1) * size)))
 		fill_error(0);
-	while (n--)
+	while (y < size)
 	{
-		if (*grid == 0)
-			tmp[i] = *grid;
-		else if (*grid >= 1)
-			tmp[i] = *grid + 64;
-		else if (*grid == -1)
-			tmp[i] = '\n';
-		else if (*grid == -2)
-			tmp[i] = '\0';
-		grid++;
-		i++;
+		x = 0;
+		while (x < size)
+		{
+			if (grid[y][x] == 0)
+				tmp[i++] = '.';
+			else (grid[y][x] >= 1)
+				tmp[i++] = grid[y][x] + 64;
+			x++;
+		}
+		tmp[i++] = '\n';
+		y++;
 	}
+	tmp[i] = '\0';
 	ft_putstr_fd(tmp, 1);
-	free(grid);
-	free(tmp);
 }
-/*
-int		main(void)
-{
-	print_fill();
-	return (0);
-}
-*/
