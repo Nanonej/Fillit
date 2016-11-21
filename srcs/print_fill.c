@@ -6,7 +6,7 @@
 /*   By: aridolfi <aridolfi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/18 18:37:33 by aridolfi          #+#    #+#             */
-/*   Updated: 2016/11/18 19:51:06 by aridolfi         ###   ########.fr       */
+/*   Updated: 2016/11/20 09:40:39 by aridolfi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,10 @@ void	print_fill(int *grid, int n)
 	free(grid);
 	free(tmp);
 }
-
+/*
 int		main(void)
 {
 	print_fill();
 	return (0);
 }
+*/
