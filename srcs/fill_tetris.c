@@ -6,14 +6,12 @@
 /*   By: lchim <lchim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 21:45:18 by lchim             #+#    #+#             */
-/*   Updated: 2016/11/21 12:00:11 by aridolfi         ###   ########.fr       */
+/*   Updated: 2016/11/21 13:53:55 by aridolfi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <stdio.h>
-
-
 
 void		fill_get_tetris(int *tetriminos, char *buff)
 {
