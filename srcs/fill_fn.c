@@ -6,7 +6,7 @@
 /*   By: lchim <lchim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 21:56:16 by lchim             #+#    #+#             */
-/*   Updated: 2016/11/18 19:48:39 by aridolfi         ###   ########.fr       */
+/*   Updated: 2016/11/21 16:07:12 by aridolfi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ char		*ft_strnew(size_t size)
 	char *new;
 
 	if ((new = (char*)malloc(sizeof(char) * (size + 1))) == NULL)
-		return (NULL);
+		fill_tetris_error(0);
 	return (new);
 }
