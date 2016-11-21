@@ -6,14 +6,30 @@
 /*   By: lchim <lchim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 21:45:18 by lchim             #+#    #+#             */
-/*   Updated: 2016/11/21 11:33:25 by lchim            ###   ########.fr       */
+/*   Updated: 2016/11/21 11:50:35 by lchim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <stdio.h>
 
+void		fill_all_tetris(int **tetris, int *tetriminos)
+{
+	int		i;
+	int		j;
 
+	i = 0;
+	j = 0;
+	while (tetris[i] != NULL)
+		i++;
+	tetris[i] = (int *)malloc(sizeof(int) * 22);
+	while (*tetriminos != -2)
+	{
+		tetris[i][j] = *tetriminos++;
+		j++;
+	}
+	tetris[i][j] = -2;
+}
 
 void		fill_get_tetris(int *tetriminos, char *buff)
 {
