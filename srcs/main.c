@@ -6,7 +6,7 @@
 /*   By: lchim <lchim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 21:45:10 by lchim             #+#    #+#             */
-/*   Updated: 2016/11/22 10:08:32 by lchim            ###   ########.fr       */
+/*   Updated: 2016/11/22 10:56:45 by lchim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,10 @@ int			main(int ac, char **av)
 			return (EXIT_FAILURE);
 		fill_start(fd);
 	}
-	return (0);
+	else
+	{
+		ft_putstr_fd("usage: ./fillit fillit_file\n", 2);
+		return (EXIT_FAILURE);
+	}
+	return (EXIT_SUCCESS);
 }
