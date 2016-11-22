@@ -6,7 +6,7 @@
 /*   By: lchim <lchim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 21:45:18 by lchim             #+#    #+#             */
-/*   Updated: 2016/11/22 11:37:48 by lchim            ###   ########.fr       */
+/*   Updated: 2016/11/22 13:08:06 by lchim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,59 @@ void		malloc_tetris(int ***tetris, int nb_tetris)
 	}
 }
 
+void		fill_tetris(int ***tetris, int nb_tetris, char *buff)
+{
+	int		i;
+	int		j;
+	int		k;
+	int		char_part;
+
+	i = -1;
+	char_part = 1;
+	while (nb_tetris-- > 0 && ++i != 26)
+	{
+		j = -1;
+		while (++j < 4)
+		{
+			k = -1;
+			while (++k < 4)
+			{
+				while (*buff == '\n' && *buff)
+					buff++;
+				tetris[i][j][k] = (*buff == '.' ? 0 : char_part);
+				buff++;
+			}
+		}
+		char_part++;
+	}
+}
+
+/*void		print_tetris(int ***tetris, int nb_tetris)
+{
+	int		i;
+	int		j;
+	int		k;
+
+	i = 0;
+	while (nb_tetris-- > 0)
+	{
+		j = 0;
+		while (j < 4)
+		{
+			k = 0;
+			while (k < 4)
+			{
+				printf("%d", tetris[i][j][k]);
+				k++;
+			}
+			printf("\n");
+			j++;
+		}
+		printf("\n");
+		i++;
+	}
+}
+*/
 void		fill_start(int fd)
 {
 	int		ret;
@@ -73,4 +126,7 @@ void		fill_start(int fd)
 	tetris = (int ***)malloc(sizeof(int **) * (count_tetriminos(buff)));
 	if (tetris == NULL)
 		fill_error(0);
+	malloc_tetris(tetris, count_tetriminos(buff));
+	fill_tetris(tetris, count_tetriminos(buff), buff);
+	print_tetris(tetris, count_tetriminos(buff));
 }
