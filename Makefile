@@ -6,7 +6,7 @@
 #    By: lchim <lchim@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/15 21:21:36 by lchim             #+#    #+#              #
-#    Updated: 2016/11/22 10:13:27 by lchim            ###   ########.fr        #
+#    Updated: 2016/11/22 11:44:22 by lchim            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRCS	= 					\
 			fill_tetris.c	\
 			fill_error.c	\
 			fill_fn.c		\
+			print_grid.c	\
 
 
 OBJS	= $(addprefix $(OBJDIR)/, $(SRCS:.c=.o))

@@ -6,7 +6,7 @@
 /*   By: aridolfi <aridolfi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/18 18:37:33 by aridolfi          #+#    #+#             */
-/*   Updated: 2016/11/21 16:09:58 by aridolfi         ###   ########.fr       */
+/*   Updated: 2016/11/22 11:46:03 by lchim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	print_grid(int **grid, int size)
 
 	i = 0;
 	y = 0;
-	tmp = ft_strnew((size + 1) * size)
+	tmp = ft_strnew((size + 1) * size);
 	while (y < size)
 	{
 		x = 0;
@@ -29,7 +29,7 @@ void	print_grid(int **grid, int size)
 		{
 			if (grid[y][x] == 0)
 				tmp[i++] = '.';
-			else (grid[y][x] >= 1)
+			else if (grid[y][x] >= 1)
 				tmp[i++] = grid[y][x] + 64;
 			x++;
 		}
