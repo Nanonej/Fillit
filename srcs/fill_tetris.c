@@ -6,7 +6,7 @@
 /*   By: lchim <lchim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 21:45:18 by lchim             #+#    #+#             */
-/*   Updated: 2016/11/22 10:09:00 by lchim            ###   ########.fr       */
+/*   Updated: 2016/11/22 10:52:43 by lchim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,24 @@ int			count_tetriminos(char *buff)
 {
 	int		i;
 	int		count;
+	int		nb_part;
 
 	i = 0;
 	count = 0;
-	while (*buff)
+	nb_part = 0;
+	while (*buff && i++ != 546)
 	{
-		if (*buff == '\n')
+		if (*buff == '#')
+			nb_part++;
+		if (*buff != '#' && *buff != '.' && *buff != '\n')
+			fill_error(3);
+		if (*buff == '\n' && *(buff + 1) == '\n' && *(buff + 2) == '\n')
+			fill_error(3);
+		if (*buff++ == '\n')
 			count++;
-		i++;
-		buff++;
 	}
+	if ((((i - count) / 16) * 4) != nb_part)
+		fill_error(3);
 	if ((i - count) % 16 != 0)
 		fill_error(3);
 	if ((((i - count) / 16) * 5 - 1) != count)
@@ -62,10 +70,8 @@ void		fill_start(int fd)
 
 	ret = read(fd, buff, BUFF_SIZE);
 	buff[ret] = '\0';
-	printf("%d\n", count_tetriminos(buff));
 	tetris = (int ***)malloc(sizeof(int **) * (count_tetriminos(buff) + 1));
 	if (tetris == NULL)
 		fill_error(0);
 	tetris[count_tetriminos(buff)] = NULL;
-	fill_tetris(tetris, count_tetriminos(buff));
 }
