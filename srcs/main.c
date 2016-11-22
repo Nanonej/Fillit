@@ -6,7 +6,7 @@
 /*   By: lchim <lchim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 21:45:10 by lchim             #+#    #+#             */
-/*   Updated: 2016/11/16 22:26:23 by lchim            ###   ########.fr       */
+/*   Updated: 2016/11/22 10:08:32 by lchim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,10 @@ int			main(int ac, char **av)
 
 	if (ac == 2)
 	{
-		if ((fd = open(av[1], O_RDONLY)) == -1)
-			fill_error(1);
-		fill_read_tetris(fd);
-		if (close(fd) == -1)
-			fill_error(2);
+		fd = open(av[1], O_RDONLY);
+		if (fd == -1)
+			return (EXIT_FAILURE);
+		fill_start(fd);
 	}
-	else
-	{
-		ft_putstr_fd("usage: ./fillit file_fillit\n", 2);
-		return (EXIT_FAILURE);
-	}
-	return (EXIT_SUCCESS);
+	return (0);
 }

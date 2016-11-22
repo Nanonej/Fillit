@@ -6,7 +6,7 @@
 /*   By: lchim <lchim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 21:45:59 by lchim             #+#    #+#             */
-/*   Updated: 2016/11/21 19:09:42 by aridolfi         ###   ########.fr       */
+/*   Updated: 2016/11/22 10:09:46 by lchim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,11 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-int			fill_tetris_len(char *buff);
-void		fill_get_tetris(int *tetriminos, char *buff);
-void		fill_read_tetris(int fd);
+# include <stdio.h> // A SUPP
+
+int			count_tetriminos(char *buff);
+void		malloc_tetris(int ***tetris, int nb_tetris);
+void		fill_start(int fd);
 
 int			ft_strlen(char *str);
 void		ft_putstr_fd(char *str, int fd);
