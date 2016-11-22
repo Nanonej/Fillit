@@ -6,7 +6,7 @@
 /*   By: aridolfi <aridolfi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 16:18:45 by aridolfi          #+#    #+#             */
-/*   Updated: 2016/11/21 19:08:50 by aridolfi         ###   ########.fr       */
+/*   Updated: 2016/11/22 15:50:12 by aridolfi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,24 +37,25 @@ static int	lsq(int npieces)
 	return (0);
 }
 
-static void	backtracking(int ***pieces, int **grid, int size_grid, int npieces, int i)
+static void	backtracking(int ***pieces, int size_grid, int npieces, int i)
 {
-	int		x;
-	int		y;
+	int **grid
+	int			x;
+	int			y;
 
+	**grid = set_grid(size_grid);
 	y = 0;
 	while (y < size_grid)
 	{
 		x = 0;
 		while (x < size_grid)
 		{
-			if (place_the_tetriminos == success)
+			if (place_tetriminos())
 			{
 				if ((i + 1) != npieces)
-					backtracking(pieces, grid, size_grid, npieces, (i + 1));
+					backtracking(pieces, size_grid, npieces, (i + 1));
 				else
 					print_grid(grid, size_grid);
-				delete_tetriminos();
 			}
 			x++;
 		}
@@ -64,14 +65,9 @@ static void	backtracking(int ***pieces, int **grid, int size_grid, int npieces, 
 
 void		fill_grid(int ***pieces, int npieces)
 {
-	int **grid;
 	int size_grid;
 
-	size_grid = lsq(npieces);
-	while (size_grid)
-	{
-		**grid = set_grid(size_grid);
-		backtracking(pieces, grid, size_grid, npieces, 0);
-		size_grid++;
-	}
+	size_grid = lsq(npieces) - 1;
+	while (++size_grid)
+		backtracking(pieces, size_grid, npieces, 0);
 }

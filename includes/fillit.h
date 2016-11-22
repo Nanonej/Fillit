@@ -6,7 +6,7 @@
 /*   By: lchim <lchim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 21:45:59 by lchim             #+#    #+#             */
-/*   Updated: 2016/11/22 13:38:49 by lchim            ###   ########.fr       */
+/*   Updated: 2016/11/22 16:49:01 by aridolfi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void		ft_putstr_fd(char *str, int fd);
 char		*ft_strnew(size_t size);
 
 void		fill_error(int index);
+
+int			place_tetriminos(int **piece, int **grid, int i_grid, int j_grid);
 
 void		print_grid(int **grid, int size);
 
