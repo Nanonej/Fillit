@@ -6,7 +6,7 @@
 /*   By: lchim <lchim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 21:45:59 by lchim             #+#    #+#             */
-/*   Updated: 2016/11/21 19:09:42 by aridolfi         ###   ########.fr       */
+/*   Updated: 2016/11/22 16:44:48 by aridolfi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ char		*ft_strnew(size_t size);
 void		fill_error(int index);
 void		fill_tetris_error(char *str);
 void		fill_true_tetris(char *str, int part);
+
+int			place_tetriminos(int **piece, int **grid, int i_grid, int j_grid);
 
 void		print_grid(int **grid, int size);
 
