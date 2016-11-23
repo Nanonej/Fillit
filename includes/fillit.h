@@ -6,7 +6,11 @@
 /*   By: lchim <lchim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 21:45:59 by lchim             #+#    #+#             */
-/*   Updated: 2016/11/22 16:49:01 by aridolfi         ###   ########.fr       */
+/*   Updated: 2016/11/23 12:07:10 by aridolfi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+>>>>>>> nano
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +26,12 @@
 # include <stdlib.h>
 
 # include <stdio.h> // A SUPP
+
+typedef struct	s_list
+{
+	int		**grid;
+	int		size_grid;
+}				t_list;
 
 int			count_tetriminos(char *buff);
 void		malloc_tetris(int ***tetris, int nb_tetris);
