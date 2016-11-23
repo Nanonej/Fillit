@@ -6,7 +6,7 @@
 /*   By: lchim <lchim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 21:45:59 by lchim             #+#    #+#             */
-/*   Updated: 2016/11/23 14:03:04 by lchim            ###   ########.fr       */
+/*   Updated: 2016/11/23 15:28:55 by lchim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void		ft_putstr_fd(char *str, int fd);
 char		*ft_strnew(size_t size);
 
 void		fill_error(int index);
+int			fill_is_tetrimino(int count);
 void		fill_test_trimino(int *tmp, int char_part);
 void		fill_true_tetris(int **tetrimino, int char_part);
 
