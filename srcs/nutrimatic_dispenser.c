@@ -53,12 +53,12 @@ int			place_tetriminos(int **piece, int **grid, int i_grid, int j_grid)
 		while (++j_piece < 4)
 			if (piece[i_piece][j_piece] > 0)
 			{
-				if ((i_grid + i_piece - i_pos) >= /* size_grid */ || (j_grid + j_piece - j_pos) >= /* size_grid */ || grid[(i_grid + i_piece - i_pos)][(j_grid + j_piece - j_pos)] > 0)
+				if (I >= /* size_grid */ || J >= /* size_grid */ || grid[I][J] > 0)
 				{
 				/*	delete_tetri(grid, size_grid, ascii_of_tetri); */
 					return (0);
 				}
-				grid[(i_grid + i_piece - i_pos)][(j_grid + j_piece - j_pos)] = piece[i_piece][j_piece];
+				grid[I][J] = piece[i_piece][j_piece];
 			}
 	}
 	return (1);

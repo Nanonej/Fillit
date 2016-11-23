@@ -1,50 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_grid.c                                        :+:      :+:    :+:   */
+/*   set_grid.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aridolfi <aridolfi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:47:52 by aridolfi          #+#    #+#             */
-/*   Updated: 2016/11/21 14:52:28 by aridolfi         ###   ########.fr       */
+/*   Updated: 2016/11/23 21:01:10 by aridolfi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static void	init_grid(int **grid, int size)
+static void	init_grid(t_list *s_grid)
 {
 	int y;
 	int x;
 
 	y = 0;
-	while (y < size)
+	while (y < s_grid->size_grid)
 	{
 		x = 0;
-		while (x < size)
+		while (x < s_grid->size_grid)
 		{
-			grid[y][x] = 0;
+			s_grid->grid[y][x] = 0;
 			x++;
 		}
-		grid[y][x] = -2;
+		s_grid->grid[y][x] = -2;
 		y++;
 	}
 }
 
-int			**set_grid(int size)
+void		set_grid(t_list *s_grid)
 {
-	int **grid;
 	int n;
 
 	n = 0;
-	if (!(grid = (int**)malloc(sizeof(int*) * size)))
+	if (!(s_grid->grid = (int**)malloc(sizeof(int*) * (s_grid->size_grid))))
 		fill_tetris_error(0);
-	while (n < size)
+	while (n < s_grid->size_grid)
 	{
-		if (!(grid[n] = (int*)malloc(sizeof(int) * (size + 1))))
+		if (!(s_grid->grid[n] = (int*)malloc(sizeof(int) * (s_grid->size_grid + 1))))
 			fill_tetris_error(0);
 		n++;
 	}
-	init_grid(grid, size);
-	return (grid);
+	init_grid(s_grid);
 }

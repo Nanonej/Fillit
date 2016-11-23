@@ -6,7 +6,7 @@
 /*   By: aridolfi <aridolfi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 16:18:45 by aridolfi          #+#    #+#             */
-/*   Updated: 2016/11/22 15:50:12 by aridolfi         ###   ########.fr       */
+/*   Updated: 2016/11/23 21:03:24 by aridolfi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,17 @@ static int	lsq(int npieces)
 	return (0);
 }
 
-static void	backtracking(int ***pieces, int size_grid, int npieces, int i)
+static void	backtracking(int ***pieces, t_list *s_grid, int npieces, int i)
 {
-	int **grid
 	int			x;
 	int			y;
 
-	**grid = set_grid(size_grid);
+	set_grid(s_grid);
 	y = 0;
-	while (y < size_grid)
+	while (y < s_grid->size_grid)
 	{
 		x = 0;
-		while (x < size_grid)
+		while (x < s_grid->size_grid)
 		{
 			if (place_tetriminos())
 			{
@@ -65,9 +64,11 @@ static void	backtracking(int ***pieces, int size_grid, int npieces, int i)
 
 void		fill_grid(int ***pieces, int npieces)
 {
-	int size_grid;
+	t_list *s_grid;
 
-	size_grid = lsq(npieces) - 1;
-	while (++size_grid)
-		backtracking(pieces, size_grid, npieces, 0);
+	if (!(s_grid = (t_list*)malloc(sizeof(t_list))) == NULL)
+		fill_error(0);
+	s_grid->size_grid = lsq(npieces) - 1;
+	while (s_grid->size_grid = s_grid->size_grid + 1)
+		backtracking(pieces, s_grid, npieces, 0);
 }

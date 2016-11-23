@@ -6,7 +6,7 @@
 /*   By: lchim <lchim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 21:45:59 by lchim             #+#    #+#             */
-/*   Updated: 2016/11/23 15:28:55 by lchim            ###   ########.fr       */
+/*   Updated: 2016/11/23 21:04:28 by aridolfi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define FILLIT_H
 
 # define BUFF_SIZE	545
+# define I (i_grid + i_piece - i_pos)
+# define J (j_grid + j_piece - j_pos)
 
 # include <sys/types.h>
 # include <sys/uio.h>
@@ -48,7 +50,7 @@ int			place_tetriminos(int **piece, int **grid, int i_grid, int j_grid);
 
 void		print_grid(int **grid, int size);
 
-int			**set_grid(int size);
+void		set_grid(t_list *s_grid);
 
 void		fill_grid(int ***pieces, int npieces);
 
