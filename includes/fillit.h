@@ -6,7 +6,7 @@
 /*   By: lchim <lchim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 21:45:59 by lchim             #+#    #+#             */
-/*   Updated: 2016/11/22 16:44:48 by aridolfi         ###   ########.fr       */
+/*   Updated: 2016/11/23 11:51:28 by aridolfi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
+
+typedef struct	s_list
+{
+	int		**grid;
+	int		size_grid;
+}				t_list;
 
 int			fill_tetris_len(char *buff);
 void		fill_get_tetris(int *tetriminos, char *buff);
