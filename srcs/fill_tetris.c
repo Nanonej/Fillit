@@ -6,7 +6,7 @@
 /*   By: lchim <lchim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 21:45:18 by lchim             #+#    #+#             */
-/*   Updated: 2016/11/22 13:38:26 by lchim            ###   ########.fr       */
+/*   Updated: 2016/11/23 13:58:31 by lchim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ void		fill_tetris(int ***tetris, int nb_tetris, char *buff)
 				buff++;
 			}
 		}
+		fill_true_tetris(tetris[i], char_part);
 		char_part++;
 	}
 }
