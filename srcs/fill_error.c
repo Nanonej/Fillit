@@ -6,7 +6,7 @@
 /*   By: lchim <lchim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 21:49:58 by lchim             #+#    #+#             */
-/*   Updated: 2016/11/23 15:11:54 by lchim            ###   ########.fr       */
+/*   Updated: 2016/11/23 15:35:23 by lchim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int			fill_is_tetrimino(int count)
 		return (1);
 	if (count == 121 || count == 131 || count == 134 || count == 141)
 		return (1);
-	if (count == 144 || count == 211 || count ==  311 || count == 313)
+	if (count == 144 || count == 211 || count == 311 || count == 313)
 		return (1);
 	if (count == 314 || count == 411 || count == 413 || count == 414)
 		return (1);
