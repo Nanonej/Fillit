@@ -6,7 +6,7 @@
 /*   By: aridolfi <aridolfi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 16:18:45 by aridolfi          #+#    #+#             */
-/*   Updated: 2016/11/24 14:01:38 by aridolfi         ###   ########.fr       */
+/*   Updated: 2016/11/24 14:43:12 by lchim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void	backtracking(int ***pieces, t_list *s_grid, int npieces, int x)
 					backtracking(pieces, s_grid, npieces, (x + 1));
 				else
 					print_grid(s_grid);
-				delete_tetriminos(s_grid, ascii_of_tetriminos(piece));
+				delete_tetriminos(ascii_of_tetriminos(pieces[x]), s_grid);
 			}
 			j++;
 		}
@@ -67,9 +67,11 @@ void		fill_grid(int ***pieces, int npieces)
 {
 	t_list *s_grid;
 
-	if (!(s_grid = (t_list*)malloc(sizeof(t_list))) == NULL)
+	if (!(s_grid = (t_list*)malloc(sizeof(t_list))))
 		fill_error(0);
 	s_grid->size_grid = lsq(npieces) - 1;
-	while (s_grid->size_grid = s_grid->size_grid + 1)
+	while ((s_grid->size_grid = s_grid->size_grid + 1))
+	{
 		backtracking(pieces, s_grid, npieces, 0);
+	}
 }

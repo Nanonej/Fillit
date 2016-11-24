@@ -6,7 +6,7 @@
 /*   By: aridolfi <aridolfi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 14:28:06 by aridolfi          #+#    #+#             */
-/*   Updated: 2016/11/24 14:00:10 by aridolfi         ###   ########.fr       */
+/*   Updated: 2016/11/24 14:33:54 by lchim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,19 @@ static int	pos_tetriminos(int **piece)
 	return (-1);
 }
 
-static void	delete_tetriminos(int ascii_of_tetri, t_list *s_grid)
+void		delete_tetriminos(int ascii_of_tetri, t_list *s_grid)
 {
 	int		y;
 	int		x;
 
 	y = 0;
-	while (y < size_map)
+	while (y < s_grid->size_grid)
 	{
 		x = 0;
-		while (x < size_map)
+		while (x < s_grid->size_grid)
 		{
-			if (map[y][x] == ascii_of_tetri)
-				map[y][x] = 0;
+			if (s_grid->grid[y][x] == ascii_of_tetri)
+				s_grid->grid[y][x] = 0;
 			x++;
 		}
 		y++;
@@ -73,12 +73,12 @@ int			place_tetriminos(int **piece, t_list *s_grid, int i_grid, \
 			if (piece[i_piece][j_piece] > 0)
 			{
 				if (I >= s_grid->size_grid || J >= s_grid->size_grid \
-					|| grid[I][J] > 0)
+					|| s_grid->grid[I][J] > 0)
 				{
-					delete_tetriminos(s_grid, ascii_of_tetriminos(piece));
+					delete_tetriminos(ascii_of_tetriminos(piece), s_grid);
 					return (0);
 				}
-				grid[I][J] = piece[i_piece][j_piece];
+				s_grid->grid[I][J] = piece[i_piece][j_piece];
 			}
 	}
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: lchim <lchim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 21:45:18 by lchim             #+#    #+#             */
-/*   Updated: 2016/11/23 13:58:31 by lchim            ###   ########.fr       */
+/*   Updated: 2016/11/24 14:34:49 by lchim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,7 @@ void		fill_start(int fd)
 		fill_error(0);
 	malloc_tetris(tetris, count_tetriminos(buff));
 	fill_tetris(tetris, count_tetriminos(buff), buff);
+	fill_grid(tetris, count_tetriminos(buff));
 	free_tetris(tetris, count_tetriminos(buff));
 	free(tetris);
 }

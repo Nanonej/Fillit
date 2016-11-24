@@ -6,7 +6,7 @@
 /*   By: lchim <lchim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 21:56:16 by lchim             #+#    #+#             */
-/*   Updated: 2016/11/24 14:00:36 by aridolfi         ###   ########.fr       */
+/*   Updated: 2016/11/24 14:31:08 by lchim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char		*ft_strnew(size_t size)
 	return (new);
 }
 
-int		ascii_of_tetriminos(char **piece)
+int			ascii_of_tetriminos(int **piece)
 {
 	int		i;
 	int		j;

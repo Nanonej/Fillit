@@ -6,13 +6,13 @@
 /*   By: aridolfi <aridolfi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/18 18:37:33 by aridolfi          #+#    #+#             */
-/*   Updated: 2016/11/24 11:38:13 by aridolfi         ###   ########.fr       */
+/*   Updated: 2016/11/24 14:17:23 by lchim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	print_grid(t_list *s_grid)
+int		print_grid(t_list *s_grid)
 {
 	char	*tmp;
 	int		i;
@@ -38,4 +38,5 @@ void	print_grid(t_list *s_grid)
 	}
 	tmp[i] = '\0';
 	ft_putstr_fd(tmp, 1);
+	return (1);
 }
