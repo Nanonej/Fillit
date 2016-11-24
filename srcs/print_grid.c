@@ -6,13 +6,13 @@
 /*   By: aridolfi <aridolfi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/18 18:37:33 by aridolfi          #+#    #+#             */
-/*   Updated: 2016/11/22 11:46:03 by lchim            ###   ########.fr       */
+/*   Updated: 2016/11/24 11:38:13 by aridolfi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	print_grid(int **grid, int size)
+void	print_grid(t_list *s_grid)
 {
 	char	*tmp;
 	int		i;
@@ -21,16 +21,16 @@ void	print_grid(int **grid, int size)
 
 	i = 0;
 	y = 0;
-	tmp = ft_strnew((size + 1) * size);
-	while (y < size)
+	tmp = ft_strnew((s_grid->size_grid + 1) * s_grid->size_grid);
+	while (y < s_grid->size_grid)
 	{
 		x = 0;
-		while (x < size)
+		while (x < s_grid->size_grid)
 		{
-			if (grid[y][x] == 0)
+			if (s_grid->grid[y][x] == 0)
 				tmp[i++] = '.';
-			else if (grid[y][x] >= 1)
-				tmp[i++] = grid[y][x] + 64;
+			else if (s_grid->grid[y][x] >= 1)
+				tmp[i++] = s_grid->grid[y][x] + 64;
 			x++;
 		}
 		tmp[i++] = '\n';

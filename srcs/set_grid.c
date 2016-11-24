@@ -6,7 +6,7 @@
 /*   By: aridolfi <aridolfi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:47:52 by aridolfi          #+#    #+#             */
-/*   Updated: 2016/11/23 21:01:10 by aridolfi         ###   ########.fr       */
+/*   Updated: 2016/11/24 13:42:14 by aridolfi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ void		set_grid(t_list *s_grid)
 		fill_tetris_error(0);
 	while (n < s_grid->size_grid)
 	{
-		if (!(s_grid->grid[n] = (int*)malloc(sizeof(int) * (s_grid->size_grid + 1))))
+		if (!(s_grid->grid[n] = (int*)malloc(sizeof(int) * \
+											(s_grid->size_grid + 1))))
 			fill_tetris_error(0);
 		n++;
 	}

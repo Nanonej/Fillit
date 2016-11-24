@@ -6,7 +6,7 @@
 /*   By: aridolfi <aridolfi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 16:18:45 by aridolfi          #+#    #+#             */
-/*   Updated: 2016/11/23 21:03:24 by aridolfi         ###   ########.fr       */
+/*   Updated: 2016/11/24 11:56:18 by aridolfi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,28 +37,28 @@ static int	lsq(int npieces)
 	return (0);
 }
 
-static void	backtracking(int ***pieces, t_list *s_grid, int npieces, int i)
+static void	backtracking(int ***pieces, t_list *s_grid, int npieces, int x)
 {
-	int			x;
-	int			y;
+	int			i;
+	int			j;
 
 	set_grid(s_grid);
-	y = 0;
-	while (y < s_grid->size_grid)
+	i = 0;
+	while (i < s_grid->size_grid)
 	{
-		x = 0;
-		while (x < s_grid->size_grid)
+		j = 0;
+		while (j < s_grid->size_grid)
 		{
-			if (place_tetriminos())
+			if (place_tetriminos(pieces[x], s_grid, i, j))
 			{
-				if ((i + 1) != npieces)
-					backtracking(pieces, size_grid, npieces, (i + 1));
+				if ((x + 1) != npieces)
+					backtracking(pieces, s_grid, npieces, (x + 1));
 				else
-					print_grid(grid, size_grid);
+					print_grid(s_grid);
 			}
-			x++;
+			j++;
 		}
-		y++;
+		i++;
 	}
 }
 

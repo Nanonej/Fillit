@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   nutrimatic_dispenser.c                             :+:      :+:    :+:   */
+/*   tetrimatic_dispenser.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   Bj: aridolfi <aridolfi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aridolfi <aridolfi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/22 14:28:06 bj aridolfi          #+#    #+#             */
-/*   Updated: 2016/11/22 15:25:44 bj aridolfi         ###   ########.fr       */
+/*   Created: 2016/11/22 14:28:06 by aridolfi          #+#    #+#             */
+/*   Updated: 2016/11/24 13:43:09 by aridolfi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,27 @@ static int	pos_tetriminos(int **piece)
 	return (-1);
 }
 
-/*	Faire un struct pour stocker grid avec size_grid */
-int			place_tetriminos(int **piece, int **grid, int i_grid, int j_grid)
+static void	delete_tetri(int ascii_of_tetri, t_list *s_grid)
+{
+	int		y;
+	int		x;
+
+	y = 0;
+	while (y < size_map)
+	{
+		x = 0;
+		while (x < size_map)
+		{
+			if (map[y][x] == ascii_of_tetri)
+				map[y][x] = '.';
+			x++;
+		}
+		y++;
+	}
+}
+
+int			place_tetriminos(int **piece, t_list *s_grid, int i_grid, \
+															int j_grid)
 {
 	int	i_pos;
 	int j_pos;
@@ -53,9 +72,10 @@ int			place_tetriminos(int **piece, int **grid, int i_grid, int j_grid)
 		while (++j_piece < 4)
 			if (piece[i_piece][j_piece] > 0)
 			{
-				if (I >= /* size_grid */ || J >= /* size_grid */ || grid[I][J] > 0)
+				if (I >= s_grid->size_grid || J >= s_grid->size_grid \
+					|| grid[I][J] > 0)
 				{
-				/*	delete_tetri(grid, size_grid, ascii_of_tetri); */
+					delete_tetri(s_grid, ascii_of_tetri);
 					return (0);
 				}
 				grid[I][J] = piece[i_piece][j_piece];
