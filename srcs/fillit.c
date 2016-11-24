@@ -6,7 +6,7 @@
 /*   By: aridolfi <aridolfi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 16:18:45 by aridolfi          #+#    #+#             */
-/*   Updated: 2016/11/24 16:25:13 by lchim            ###   ########.fr       */
+/*   Updated: 2016/11/24 19:59:00 by lchim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,35 +37,38 @@ static int	lsq(int npieces)
 	return (0);
 }
 
+
 static int	backtracking(int ***pieces, t_list *s_grid, int npieces, int x)
 {
 	int			i;
 	int			j;
 	int			test = 0;
 
-	if (x == 0)
-		set_grid(s_grid);
 	i = 0;
+	if ((x + 1) != npieces)
+		set_grid(s_grid);
 	while (i < s_grid->size_grid)
 	{
 		j = 0;
 		while (j < s_grid->size_grid)
 		{
-			if (place_tetriminos(pieces[x], s_grid, i, j))
+			if (place_tetriminos(pieces[x], s_grid, i, j) != 0)
 			{
-				if ((x + 1) != npieces)
+				printf("%d\n", x);
+				if ((x + 1) < npieces)
 					test = backtracking(pieces, s_grid, npieces, (x + 1));
 				if ((x + 1) == npieces)
+				{
 					return (print_grid(s_grid));
-				else
-					delete_tetriminos(ascii_of_tetriminos(pieces[x]), s_grid);
+				}
+				delete_tetriminos(ascii_of_tetriminos(pieces[x]), s_grid);
 				return (test);
 			}
 			j++;
 		}
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
 void		fill_grid(int ***pieces, int npieces)

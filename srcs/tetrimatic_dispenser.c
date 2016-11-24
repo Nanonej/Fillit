@@ -6,7 +6,7 @@
 /*   By: aridolfi <aridolfi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 14:28:06 by aridolfi          #+#    #+#             */
-/*   Updated: 2016/11/24 14:33:54 by lchim            ###   ########.fr       */
+/*   Updated: 2016/11/24 19:28:59 by lchim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ static int	pos_tetriminos(int **piece)
 			pos++;
 			j++;
 		}
-		pos++;
 		i++;
 	}
 	return (-1);
