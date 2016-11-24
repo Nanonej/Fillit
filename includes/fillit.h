@@ -6,7 +6,7 @@
 /*   By: lchim <lchim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 21:45:59 by lchim             #+#    #+#             */
-/*   Updated: 2016/11/24 14:30:54 by lchim            ###   ########.fr       */
+/*   Updated: 2016/11/25 00:04:39 by lchim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int				place_tetriminos(int **piece, t_list *s_grid, int i_grid, \
 							int j_grid);
 void			delete_tetriminos(int ascii_of_tetri, t_list *s_grid);
 
-int				print_grid(t_list *s_grid);
+int				print_grid(t_list *s_grid, int *trigger);
 
 void			set_grid(t_list *s_grid);
 

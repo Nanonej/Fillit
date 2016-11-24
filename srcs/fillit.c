@@ -6,7 +6,7 @@
 /*   By: aridolfi <aridolfi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 16:18:45 by aridolfi          #+#    #+#             */
-/*   Updated: 2016/11/24 19:59:00 by lchim            ###   ########.fr       */
+/*   Updated: 2016/11/25 00:10:58 by lchim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,9 @@ static int	backtracking(int ***pieces, t_list *s_grid, int npieces, int x)
 {
 	int			i;
 	int			j;
-	int			test = 0;
+	static int	trigger;
 
 	i = 0;
-	if ((x + 1) != npieces)
-		set_grid(s_grid);
 	while (i < s_grid->size_grid)
 	{
 		j = 0;
@@ -54,15 +52,16 @@ static int	backtracking(int ***pieces, t_list *s_grid, int npieces, int x)
 		{
 			if (place_tetriminos(pieces[x], s_grid, i, j) != 0)
 			{
-				printf("%d\n", x);
-				if ((x + 1) < npieces)
-					test = backtracking(pieces, s_grid, npieces, (x + 1));
-				if ((x + 1) == npieces)
+				if ((x + 1) != npieces)
+					backtracking(pieces, s_grid, npieces, (x + 1));
+				else if ((x + 1) == npieces && trigger == 0)
 				{
-					return (print_grid(s_grid));
+					print_grid(s_grid, &trigger);
+					return (1);
 				}
+				if (trigger == 1)
+					return (trigger);
 				delete_tetriminos(ascii_of_tetriminos(pieces[x]), s_grid);
-				return (test);
 			}
 			j++;
 		}
@@ -78,9 +77,11 @@ void		fill_grid(int ***pieces, int npieces)
 	if (!(s_grid = (t_list*)malloc(sizeof(t_list))))
 		fill_error(0);
 	s_grid->size_grid = lsq(npieces) - 1;
-	while ((s_grid->size_grid = s_grid->size_grid + 1))
+	while ((s_grid->size_grid))
 	{
+		set_grid(s_grid);
 		if (backtracking(pieces, s_grid, npieces, 0) == 1)
 			return ;
+		s_grid->size_grid++;
 	}
 }
