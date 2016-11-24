@@ -6,7 +6,7 @@
 /*   By: aridolfi <aridolfi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 16:18:45 by aridolfi          #+#    #+#             */
-/*   Updated: 2016/11/24 14:43:12 by lchim            ###   ########.fr       */
+/*   Updated: 2016/11/24 16:25:13 by lchim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,14 @@ static int	lsq(int npieces)
 	return (0);
 }
 
-static void	backtracking(int ***pieces, t_list *s_grid, int npieces, int x)
+static int	backtracking(int ***pieces, t_list *s_grid, int npieces, int x)
 {
 	int			i;
 	int			j;
+	int			test = 0;
 
-	set_grid(s_grid);
+	if (x == 0)
+		set_grid(s_grid);
 	i = 0;
 	while (i < s_grid->size_grid)
 	{
@@ -52,15 +54,18 @@ static void	backtracking(int ***pieces, t_list *s_grid, int npieces, int x)
 			if (place_tetriminos(pieces[x], s_grid, i, j))
 			{
 				if ((x + 1) != npieces)
-					backtracking(pieces, s_grid, npieces, (x + 1));
+					test = backtracking(pieces, s_grid, npieces, (x + 1));
+				if ((x + 1) == npieces)
+					return (print_grid(s_grid));
 				else
-					print_grid(s_grid);
-				delete_tetriminos(ascii_of_tetriminos(pieces[x]), s_grid);
+					delete_tetriminos(ascii_of_tetriminos(pieces[x]), s_grid);
+				return (test);
 			}
 			j++;
 		}
 		i++;
 	}
+	return (1);
 }
 
 void		fill_grid(int ***pieces, int npieces)
@@ -72,6 +77,7 @@ void		fill_grid(int ***pieces, int npieces)
 	s_grid->size_grid = lsq(npieces) - 1;
 	while ((s_grid->size_grid = s_grid->size_grid + 1))
 	{
-		backtracking(pieces, s_grid, npieces, 0);
+		if (backtracking(pieces, s_grid, npieces, 0) == 1)
+			return ;
 	}
 }
