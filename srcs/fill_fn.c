@@ -6,7 +6,7 @@
 /*   By: lchim <lchim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 21:56:16 by lchim             #+#    #+#             */
-/*   Updated: 2016/11/22 10:11:47 by lchim            ###   ########.fr       */
+/*   Updated: 2016/11/24 14:00:36 by aridolfi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,24 @@ char		*ft_strnew(size_t size)
 	if ((new = (char*)malloc(sizeof(char) * (size + 1))) == NULL)
 		fill_error(0);
 	return (new);
+}
+
+int		ascii_of_tetriminos(char **piece)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	while (i < 4)
+	{
+		j = 0;
+		while (j < 4)
+		{
+			if (piece[i][j] != 0)
+				return (piece[i][j]);
+			j++;
+		}
+		i++;
+	}
+	return (-1);
 }

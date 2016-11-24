@@ -6,7 +6,7 @@
 /*   By: lchim <lchim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 21:45:59 by lchim             #+#    #+#             */
-/*   Updated: 2016/11/23 21:04:28 by aridolfi         ###   ########.fr       */
+/*   Updated: 2016/11/24 14:00:15 by aridolfi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void		fill_start(int fd);
 int			ft_strlen(char *str);
 void		ft_putstr_fd(char *str, int fd);
 char		*ft_strnew(size_t size);
+int			ascii_of_tetriminos(char **piece);
 
 void		fill_error(int index);
 int			fill_is_tetrimino(int count);

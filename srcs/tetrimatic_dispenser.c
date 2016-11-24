@@ -6,7 +6,7 @@
 /*   By: aridolfi <aridolfi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 14:28:06 by aridolfi          #+#    #+#             */
-/*   Updated: 2016/11/24 13:43:09 by aridolfi         ###   ########.fr       */
+/*   Updated: 2016/11/24 14:00:10 by aridolfi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int	pos_tetriminos(int **piece)
 	return (-1);
 }
 
-static void	delete_tetri(int ascii_of_tetri, t_list *s_grid)
+static void	delete_tetriminos(int ascii_of_tetri, t_list *s_grid)
 {
 	int		y;
 	int		x;
@@ -48,7 +48,7 @@ static void	delete_tetri(int ascii_of_tetri, t_list *s_grid)
 		while (x < size_map)
 		{
 			if (map[y][x] == ascii_of_tetri)
-				map[y][x] = '.';
+				map[y][x] = 0;
 			x++;
 		}
 		y++;
@@ -75,7 +75,7 @@ int			place_tetriminos(int **piece, t_list *s_grid, int i_grid, \
 				if (I >= s_grid->size_grid || J >= s_grid->size_grid \
 					|| grid[I][J] > 0)
 				{
-					delete_tetri(s_grid, ascii_of_tetri);
+					delete_tetriminos(s_grid, ascii_of_tetriminos(piece));
 					return (0);
 				}
 				grid[I][J] = piece[i_piece][j_piece];

@@ -6,7 +6,7 @@
 /*   By: aridolfi <aridolfi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 16:18:45 by aridolfi          #+#    #+#             */
-/*   Updated: 2016/11/24 11:56:18 by aridolfi         ###   ########.fr       */
+/*   Updated: 2016/11/24 14:01:38 by aridolfi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ static void	backtracking(int ***pieces, t_list *s_grid, int npieces, int x)
 					backtracking(pieces, s_grid, npieces, (x + 1));
 				else
 					print_grid(s_grid);
+				delete_tetriminos(s_grid, ascii_of_tetriminos(piece));
 			}
 			j++;
 		}
