@@ -6,7 +6,7 @@
 /*   By: aridolfi <aridolfi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/18 18:37:33 by aridolfi          #+#    #+#             */
-/*   Updated: 2016/11/25 00:04:24 by lchim            ###   ########.fr       */
+/*   Updated: 2016/11/25 10:13:50 by lchim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int		print_grid(t_list *s_grid, int *trigger)
 	int		x;
 
 	i = 0;
-	y = 0;
+	y = -1;
 	tmp = ft_strnew((s_grid->size_grid + 1) * s_grid->size_grid);
-	while (y < s_grid->size_grid)
+	while (++y < s_grid->size_grid)
 	{
 		x = 0;
 		while (x < s_grid->size_grid)
@@ -34,7 +34,6 @@ int		print_grid(t_list *s_grid, int *trigger)
 			x++;
 		}
 		tmp[i++] = '\n';
-		y++;
 	}
 	tmp[i] = '\0';
 	ft_putstr_fd(tmp, 1);

@@ -6,7 +6,7 @@
 /*   By: aridolfi <aridolfi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 14:28:06 by aridolfi          #+#    #+#             */
-/*   Updated: 2016/11/25 01:55:19 by lchim            ###   ########.fr       */
+/*   Updated: 2016/11/25 10:10:14 by lchim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,11 @@ void		delete_tetriminos(int ascii_of_tetri, t_list *s_grid)
 
 static int	special_pos(int **piece, int i_pos, int j_pos)
 {
-	if (piece[i_pos + 1][j_pos - 2] && j_pos > 1)
-	{
+	if (j_pos > 1 && piece[i_pos + 1][j_pos - 2])
 		return (j_pos - 2);
-	}
-	if (piece[i_pos + 1][j_pos - 1] || piece[i_pos + 2][j_pos - 1])
-	{
-		if (i_pos <= 1 && j_pos >= 1)
-		{
+	if (i_pos <= 1 && j_pos >= 1)
+		if (piece[i_pos + 1][j_pos - 1] || piece[i_pos + 2][j_pos - 1])
 			return (j_pos - 1);
-		}
-	}
 	return (j_pos);
 }
 

@@ -6,7 +6,7 @@
 /*   By: aridolfi <aridolfi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 16:18:45 by aridolfi          #+#    #+#             */
-/*   Updated: 2016/11/25 00:10:58 by lchim            ###   ########.fr       */
+/*   Updated: 2016/11/25 10:14:35 by lchim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,17 @@ static int	lsq(int npieces)
 	return (0);
 }
 
-
 static int	backtracking(int ***pieces, t_list *s_grid, int npieces, int x)
 {
 	int			i;
 	int			j;
 	static int	trigger;
 
-	i = 0;
-	while (i < s_grid->size_grid)
+	i = -1;
+	while (++i < s_grid->size_grid)
 	{
-		j = 0;
-		while (j < s_grid->size_grid)
+		j = -1;
+		while (++j < s_grid->size_grid)
 		{
 			if (place_tetriminos(pieces[x], s_grid, i, j) != 0)
 			{
@@ -56,16 +55,13 @@ static int	backtracking(int ***pieces, t_list *s_grid, int npieces, int x)
 					backtracking(pieces, s_grid, npieces, (x + 1));
 				else if ((x + 1) == npieces && trigger == 0)
 				{
-					print_grid(s_grid, &trigger);
-					return (1);
+					return (print_grid(s_grid, &trigger));
 				}
 				if (trigger == 1)
 					return (trigger);
 				delete_tetriminos(ascii_of_tetriminos(pieces[x]), s_grid);
 			}
-			j++;
 		}
-		i++;
 	}
 	return (0);
 }
