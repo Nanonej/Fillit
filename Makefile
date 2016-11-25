@@ -6,7 +6,7 @@
 #    By: lchim <lchim@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/15 21:21:36 by lchim             #+#    #+#              #
-#    Updated: 2016/11/24 14:24:28 by lchim            ###   ########.fr        #
+#    Updated: 2016/11/25 10:43:26 by lchim            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ SRCS	= 					\
 			tetrimatic_dispenser.c \
 
 
-OBJS	= $(addprefix $(OBJDIR)/, $(SRCS:.c=.o))
+OBJS	= $(SRCS:.c=.o)
 
 # **************************************************************************** #
 
@@ -61,12 +61,12 @@ LOG_WHITE		= \033[1;37m
 
 # Rules
 
-all				:	$(OBJDIR) $(NAME)
+all				:	$(NAME)
 
 $(NAME)			:	$(OBJS)
 		  			@$(CC) $(CFLAGS) -o $@ $^ -I$(INCDIR)
 
-$(OBJDIR)/%.o 	: 	$(SRCDIR)/%.c
+%.o 			: 	$(SRCDIR)/%.c
 					@echo "--$(LOG_CLEAR)$(LOG_VIOLET)$(NAME)$(LOG_NOCOLOR)........................ $(LOG_YELLOW)$<$(LOG_NOCOLOR)$(LOG_UP)"
 					@$(CC) $(CFLAGS) $(ADDFLAGS) -c -o $@ $^ -I$(INCDIR)
 

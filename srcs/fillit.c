@@ -6,7 +6,7 @@
 /*   By: aridolfi <aridolfi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 16:18:45 by aridolfi          #+#    #+#             */
-/*   Updated: 2016/11/25 10:14:35 by lchim            ###   ########.fr       */
+/*   Updated: 2016/11/25 12:07:07 by lchim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,12 @@ void		fill_grid(int ***pieces, int npieces)
 	{
 		set_grid(s_grid);
 		if (backtracking(pieces, s_grid, npieces, 0) == 1)
+		{
+			free_grid(s_grid);
+			free(s_grid);
 			return ;
+		}
+		free_grid(s_grid);
 		s_grid->size_grid++;
 	}
 }

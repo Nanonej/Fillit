@@ -6,7 +6,7 @@
 /*   By: lchim <lchim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 21:49:58 by lchim             #+#    #+#             */
-/*   Updated: 2016/11/24 14:08:23 by lchim            ###   ########.fr       */
+/*   Updated: 2016/11/25 12:08:57 by lchim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,31 @@
 void		fill_error(int index)
 {
 	if (index == 0)
-		ft_putstr_fd("Memory allocation failed\n", 2);
+		ft_putstr_fd("Memory allocation failed\n", 1);
 	else if (index == 1)
-		ft_putstr_fd("open() error\n", 2);
+		ft_putstr_fd("open() error\n", 1);
 	else if (index == 2)
-		ft_putstr_fd("close() error\n", 2);
+		ft_putstr_fd("close() error\n", 1);
 	else if (index == 3)
-		ft_putstr_fd("error\n", 2);
+		ft_putstr_fd("error\n", 1);
 	exit(EXIT_FAILURE);
+}
+
+void		check_char(char *buff)
+{
+	int		i;
+	int		count;
+
+	i = 1;
+	count = 20;
+	while (buff[i])
+	{
+		if (i % count == 0 && buff[i] != '\n')
+			fill_error(3);
+		else if (i % count == 0 && buff[i] == '\n')
+			count += 21;
+		i++;
+	}
 }
 
 int			fill_is_tetrimino(int count)

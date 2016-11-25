@@ -6,7 +6,7 @@
 /*   By: lchim <lchim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 21:45:18 by lchim             #+#    #+#             */
-/*   Updated: 2016/11/25 10:15:20 by lchim            ###   ########.fr       */
+/*   Updated: 2016/11/25 11:27:00 by lchim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,7 @@ void		fill_start(int fd)
 
 	ret = read(fd, buff, BUFF_SIZE);
 	buff[ret] = '\0';
+	check_char(buff);
 	tetris = (int ***)malloc(sizeof(int **) * (count_tetriminos(buff)));
 	if (tetris == NULL)
 		fill_error(0);

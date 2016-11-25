@@ -6,7 +6,7 @@
 /*   By: lchim <lchim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 21:45:10 by lchim             #+#    #+#             */
-/*   Updated: 2016/11/25 10:15:39 by lchim            ###   ########.fr       */
+/*   Updated: 2016/11/25 12:24:42 by aridolfi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int			main(int ac, char **av)
 	{
 		fd = open(av[1], O_RDONLY);
 		if (fd == -1)
-			return (EXIT_FAILURE);
+			fill_error(1);
 		fill_start(fd);
 		close(fd);
 	}

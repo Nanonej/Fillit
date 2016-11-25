@@ -6,7 +6,7 @@
 /*   By: aridolfi <aridolfi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:47:52 by aridolfi          #+#    #+#             */
-/*   Updated: 2016/11/24 14:31:29 by lchim            ###   ########.fr       */
+/*   Updated: 2016/11/25 12:07:34 by lchim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,19 @@ static void	init_grid(t_list *s_grid)
 		s_grid->grid[y][x] = -2;
 		y++;
 	}
+}
+
+void		free_grid(t_list *grid)
+{
+	int		i;
+
+	i = 0;
+	while (i < grid->size_grid)
+	{
+		free(grid->grid[i]);
+		i++;
+	}
+	free(grid->grid);
 }
 
 void		set_grid(t_list *s_grid)

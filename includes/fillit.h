@@ -6,7 +6,7 @@
 /*   By: lchim <lchim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 21:45:59 by lchim             #+#    #+#             */
-/*   Updated: 2016/11/25 00:04:39 by lchim            ###   ########.fr       */
+/*   Updated: 2016/11/25 12:07:48 by lchim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
-
-# include <stdio.h> // A SUPP
 
 typedef struct	s_list
 {
@@ -42,6 +40,7 @@ void			ft_putstr_fd(char *str, int fd);
 char			*ft_strnew(size_t size);
 int				ascii_of_tetriminos(int **piece);
 
+void			check_char(char *buff);
 void			fill_error(int index);
 int				fill_is_tetrimino(int count);
 void			fill_test_trimino(int *tmp, int char_part);
@@ -53,6 +52,7 @@ void			delete_tetriminos(int ascii_of_tetri, t_list *s_grid);
 
 int				print_grid(t_list *s_grid, int *trigger);
 
+void			free_grid(t_list *grid);
 void			set_grid(t_list *s_grid);
 
 void			fill_grid(int ***pieces, int npieces);
